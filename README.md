@@ -10,6 +10,25 @@ To install the package, use:
 go get github.com/yazmeyaa/fragmento
 ```
 
+## UDP Request Structure
+
+| Field         | Size (bytes) | Description                             |
+| ------------- | ------------ | --------------------------------------- |
+| ID            | 4            | Unique identifier for the request       |
+| Packed Fields | 1            | Packed fields                           |
+| Index         | 2            | Index of the current fragment (0-based) |
+| Total         | 2            | Total number of fragments               |
+| Size          | 2            | Size of the payload (data)              |
+| Payload       | Var.         | Payload (data)                          |
+| Checksum      | 4            | Checksum for verifying data integrity   |
+
+### Packed Fields Description
+- **0:** Fragmented Flag (1 bit)
+- **1-7:** RESERVED (7 bits)
+
+### Fragmented Flag
+The Fragmented Flag indicates whether the packet is a fragment of a larger message. If this flag is set to `1`, it signifies that the current packet is part of a fragmented transmission, allowing the receiver to identify and process it correctly within the context of the complete message.
+
 ## Core Entities
 
 ### Fragment
