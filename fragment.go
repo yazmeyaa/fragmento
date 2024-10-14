@@ -5,17 +5,6 @@ import (
 	"hash/crc32"
 )
 
-const (
-	HEADER_SIZE      int = 9
-	PAYLOADSIZE_SIZE int = 2
-	CHECKSUM_SIZE    int = 4
-	IP_SIZE          int = 40
-	UDP_SIZE         int = 8
-	RESERVED         int = 100
-	DEFAULT_MTU_SIZE int = 1500
-	MAX_PAYLOAD_SIZE int = DEFAULT_MTU_SIZE - (RESERVED + HEADER_SIZE + PAYLOADSIZE_SIZE + CHECKSUM_SIZE + UDP_SIZE + IP_SIZE)
-)
-
 type Fragment struct {
 	Header   *Header
 	Size     uint16
