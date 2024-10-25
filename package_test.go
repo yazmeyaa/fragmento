@@ -7,7 +7,7 @@ import (
 	"math/rand"
 	"testing"
 
-	fragmento "github.com/yazmeyaa/Fragmento"
+	fragmento "github.com/yazmeyaa/fragmento"
 )
 
 func TestFragment(t *testing.T) {
